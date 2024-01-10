@@ -1,11 +1,11 @@
 extends Control
 
+const InputResponse = preload("res://Assets/Scenes/input_response.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+@onready var history_rows = $ComputerScreen/GameContainer/MarginContainer/Rows/GameInformation/ScrollContainer/HistoryRows
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_input_text_submitted(user_input):
+	var input_response = InputResponse.instantiate()
+	input_response.set_text(user_input, "This is where the response would go.")
+	history_rows.add_child(input_response)
