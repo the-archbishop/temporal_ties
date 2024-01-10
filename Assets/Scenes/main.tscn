@@ -1,0 +1,90 @@
+[gd_scene load_steps=10 format=3 uid="uid://bxwkpceh8nvg2"]
+
+[ext_resource type="Texture2D" uid="uid://1hupi6582gta" path="res://Assets/Art/Images/retroScreen2.png" id="1_fxjla"]
+[ext_resource type="Shader" path="res://Assets/Shaders/crt_shader.gdshader" id="2_1g85b"]
+[ext_resource type="FontFile" uid="uid://dbwsdonxlisbk" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="3_bjp0o"]
+[ext_resource type="Script" path="res://Assets/Scripts/Input.gd" id="3_pnkl6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irgh5"]
+shader = ExtResource("2_1g85b")
+shader_parameter/crt_curve = 0.011
+shader_parameter/crt_scan_line_color = 0.218
+shader_parameter/aperture_grille_rate = 0.21
+shader_parameter/rf_switch_esque_blur = 0.354
+shader_parameter/white_noise_rate = 0.061
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkbrn"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7gw2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0431373)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ofsq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5qt7"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ComputerMonitor" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(402, 301)
+texture = ExtResource("1_fxjla")
+metadata/_edit_lock_ = true
+
+[node name="ComputerScreen" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_irgh5")
+offset_left = 78.0
+offset_top = 61.0
+offset_right = 710.0
+offset_bottom = 535.0
+color = Color(0.105882, 0.105882, 0.105882, 1)
+
+[node name="GameContainer" type="PanelContainer" parent="ComputerScreen"]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 634.0
+offset_bottom = 477.0
+
+[node name="MarginContainer" type="MarginContainer" parent="ComputerScreen/GameContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Rows" type="VBoxContainer" parent="ComputerScreen/GameContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GameInformation" type="PanelContainer" parent="ComputerScreen/GameContainer/MarginContainer/Rows"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkbrn")
+
+[node name="InputArea" type="PanelContainer" parent="ComputerScreen/GameContainer/MarginContainer/Rows"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x7gw2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ComputerScreen/GameContainer/MarginContainer/Rows/InputArea"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="ComputerScreen/GameContainer/MarginContainer/Rows/InputArea/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.631373, 0, 1)
+theme_override_fonts/font = ExtResource("3_bjp0o")
+theme_override_font_sizes/font_size = 20
+text = "A > "
+
+[node name="Input" type="LineEdit" parent="ComputerScreen/GameContainer/MarginContainer/Rows/InputArea/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.631373, 0, 1)
+theme_override_fonts/font = ExtResource("3_bjp0o")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ofsq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u5qt7")
+max_length = 48
+script = ExtResource("3_pnkl6")
