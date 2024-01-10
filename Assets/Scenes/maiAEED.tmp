@@ -102,7 +102,7 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_colors/font_color = Color(0, 0.631373, 0, 1)
 theme_override_fonts/font = ExtResource("3_bjp0o")
 theme_override_font_sizes/font_size = 20
 text = " A > "
@@ -110,7 +110,7 @@ text = " A > "
 [node name="Input" type="LineEdit" parent="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_colors/font_color = Color(0, 0.631373, 0, 1)
 theme_override_fonts/font = ExtResource("3_bjp0o")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1ofsq")
@@ -125,9 +125,7 @@ offset_left = 78.0
 offset_top = 61.0
 offset_right = 710.0
 offset_bottom = 535.0
-mouse_filter = 2
 color = Color(0.105882, 0.105882, 0.105882, 1)
-metadata/_edit_lock_ = true
 
 [connection signal="text_submitted" from="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="." method="_on_input_text_submitted"]
 [connection signal="text_submitted" from="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" method="_on_text_submitted"]

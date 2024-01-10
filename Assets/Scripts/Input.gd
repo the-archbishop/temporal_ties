@@ -5,5 +5,5 @@ func _ready():
 	grab_focus()
 
 
-func _on_text_submitted(user_input):
+func _on_text_submitted(_user_input):
 	clear()

@@ -10,14 +10,14 @@ script = ExtResource("1_5ekvu")
 
 [node name="InputHistory" type="Label" parent="."]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.486275, 0, 1)
+theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
 theme_override_fonts/font = ExtResource("1_kesu4")
 theme_override_font_sizes/font_size = 18
 text = " A > This is what the user typed"
 
 [node name="Response" type="Label" parent="."]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0.631373, 0, 1)
+theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
 theme_override_fonts/font = ExtResource("2_j5awx")
 theme_override_font_sizes/font_size = 20
 text = " This is what the game will give back"
