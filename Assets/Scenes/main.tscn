@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bxwkpceh8nvg2"]
+[gd_scene load_steps=12 format=3 uid="uid://bxwkpceh8nvg2"]
 
 [ext_resource type="Texture2D" uid="uid://1hupi6582gta" path="res://Assets/Art/Images/retroScreen2.png" id="1_fxjla"]
 [ext_resource type="Script" path="res://Assets/Scripts/Main.gd" id="1_wl1m6"]
 [ext_resource type="Shader" path="res://Assets/Shaders/crt_shader.gdshader" id="2_1g85b"]
 [ext_resource type="FontFile" uid="uid://dbwsdonxlisbk" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="3_bjp0o"]
 [ext_resource type="Script" path="res://Assets/Scripts/Input.gd" id="3_pnkl6"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scroll.gd" id="4_xxybq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irgh5"]
 shader = ExtResource("2_1g85b")
@@ -65,11 +66,13 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_vkbrn")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ComputerScreen/GameContainer/MarginContainer/Rows/GameInformation"]
+[node name="Scroll" type="ScrollContainer" parent="ComputerScreen/GameContainer/MarginContainer/Rows/GameInformation"]
 layout_mode = 2
+follow_focus = true
 horizontal_scroll_mode = 0
+script = ExtResource("4_xxybq")
 
-[node name="HistoryRows" type="VBoxContainer" parent="ComputerScreen/GameContainer/MarginContainer/Rows/GameInformation/ScrollContainer"]
+[node name="HistoryRows" type="VBoxContainer" parent="ComputerScreen/GameContainer/MarginContainer/Rows/GameInformation/Scroll"]
 layout_mode = 2
 theme_override_constants/separation = 15
 

@@ -1,8 +1,9 @@
 extends Control
 
+
 const InputResponse = preload("res://Assets/Scenes/input_response.tscn")
 
-@onready var history_rows = $ComputerScreen/GameContainer/MarginContainer/Rows/GameInformation/ScrollContainer/HistoryRows
+@onready var history_rows = $ComputerScreen/GameContainer/MarginContainer/Rows/GameInformation/Scroll/HistoryRows
 
 
 func _on_input_text_submitted(user_input):
