@@ -3,7 +3,7 @@ extends Control
 
 const InputResponse = preload("res://Assets/Scenes/input_response.tscn")
 
-@export var max_lines_remembered: int = 10 
+@export var max_lines_remembered: int = 30 
 
 @onready var history_rows = $ComputerScreen/GameContainer/MarginContainer/Rows/GameInformation/Scroll/HistoryRows
 

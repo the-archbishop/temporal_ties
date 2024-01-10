@@ -1,15 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bxwkpceh8nvg2"]
+[gd_scene load_steps=18 format=3 uid="uid://bxwkpceh8nvg2"]
 
 [ext_resource type="Texture2D" uid="uid://1hupi6582gta" path="res://Assets/Art/Images/retroScreen2.png" id="1_fxjla"]
 [ext_resource type="Script" path="res://Assets/Scripts/Main.gd" id="1_wl1m6"]
 [ext_resource type="Shader" path="res://Assets/Shaders/crt_shader.gdshader" id="2_1g85b"]
 [ext_resource type="FontFile" uid="uid://dbwsdonxlisbk" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="3_bjp0o"]
 [ext_resource type="Script" path="res://Assets/Scripts/Input.gd" id="3_pnkl6"]
+[ext_resource type="Texture2D" uid="uid://ymkyf46x6it8" path="res://Assets/Art/Images/increment_scroll.png" id="4_dogro"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scroll.gd" id="4_xxybq"]
+[ext_resource type="Texture2D" uid="uid://bjc0ngafokpcx" path="res://Assets/Art/Images/decrement_scroll.png" id="5_qfxlo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irgh5"]
 shader = ExtResource("2_1g85b")
-shader_parameter/crt_curve = 0.011
+shader_parameter/crt_curve = 0.01
 shader_parameter/crt_scan_line_color = 0.218
 shader_parameter/aperture_grille_rate = 0.21
 shader_parameter/rf_switch_esque_blur = 0.354
@@ -17,6 +19,22 @@ shader_parameter/white_noise_rate = 0.061
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkbrn"]
 bg_color = Color(0.6, 0.6, 0.6, 0.0313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67ph2"]
+bg_color = Color(0, 0.631373, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3rco"]
+bg_color = Color(0, 0.760784, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yjev"]
+bg_color = Color(0, 0.631373, 0, 1)
+
+[sub_resource type="Theme" id="Theme_n7h8m"]
+VScrollBar/icons/decrement = ExtResource("4_dogro")
+VScrollBar/icons/increment = ExtResource("5_qfxlo")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_67ph2")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_t3rco")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_6yjev")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7gw2"]
 bg_color = Color(0.6, 0.6, 0.6, 0.0431373)
@@ -68,6 +86,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_vkbrn")
 
 [node name="Scroll" type="ScrollContainer" parent="ComputerScreen/GameContainer/MarginContainer/Rows/GameInformation"]
 layout_mode = 2
+theme = SubResource("Theme_n7h8m")
 follow_focus = true
 horizontal_scroll_mode = 0
 script = ExtResource("4_xxybq")
