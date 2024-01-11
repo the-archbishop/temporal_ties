@@ -12,7 +12,6 @@ enum State {
 
 var current_state = State.READY
 var text_queue = []
-
 var tween
 
 
@@ -30,10 +29,12 @@ func _process(_delta):
 				tween.kill()
 				dialog.visible_ratio = 1.0
 				on_tween_finished()
-		State.FINISHED:
+		State.FINISHED:			
 			if Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
 				hide_textbox()
+			else:
+				continue_symbol.visible = true
 
 
 func queue_text(next_text):
@@ -68,14 +69,6 @@ func display_text():
 
 func on_tween_finished():
 	change_state(State.FINISHED)
-	while true:
-		_on_blink_timer_timeout()
-		await get_tree().create_timer(2.0).timeout
-
-
-func _on_blink_timer_timeout():
-	# Toggle the visibility of the current node
-	continue_symbol.visible = !continue_symbol.visible
 
 
 func change_state(next_state):
