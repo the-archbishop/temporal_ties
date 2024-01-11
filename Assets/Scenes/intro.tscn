@@ -1,0 +1,61 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxwkpceh8nvg2"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/Intro.gd" id="1_ynidc"]
+[ext_resource type="Texture2D" uid="uid://c36mi1g3ykjpn" path="res://Assets/Art/Images/loading.png" id="3_4pajs"]
+[ext_resource type="Texture2D" uid="uid://1hupi6582gta" path="res://Assets/Art/Images/retroScreen2.png" id="3_7tgxq"]
+[ext_resource type="Shader" path="res://Assets/Shaders/crt_shader.gdshader" id="9_c4qv1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irgh5"]
+shader = ExtResource("9_c4qv1")
+shader_parameter/crt_curve = 0.012
+shader_parameter/crt_scan_line_color = 0.218
+shader_parameter/aperture_grille_rate = 1.0
+shader_parameter/rf_switch_esque_blur = 0.106
+shader_parameter/white_noise_rate = 0.063
+
+[node name="Intro" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_ynidc")
+
+[node name="Button" type="Button" parent="."]
+z_index = 1002
+layout_mode = 0
+offset_left = 43.0
+offset_top = 577.0
+offset_right = 100.0
+offset_bottom = 608.0
+text = "Ugly Power Button"
+
+[node name="ComputerMonitor" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(402, 301)
+texture = ExtResource("3_7tgxq")
+metadata/_edit_lock_ = true
+
+[node name="Loading" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(394.5, 300)
+scale = Vector2(0.535744, 0.63807)
+texture = ExtResource("3_4pajs")
+
+[node name="ComputerScreen" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_irgh5")
+layout_mode = 0
+offset_left = 78.0
+offset_top = 61.0
+offset_right = 710.0
+offset_bottom = 535.0
+mouse_filter = 2
+color = Color(0.105882, 0.105882, 0.105882, 1)
+metadata/_edit_lock_ = true
+
+[node name="ComputerScreen_Off" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 79.0
+offset_top = 54.0
+offset_right = 716.0
+offset_bottom = 543.0
+color = Color(0.0901961, 0.0901961, 0.0901961, 1)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
