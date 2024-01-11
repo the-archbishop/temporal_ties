@@ -83,6 +83,7 @@ layout_mode = 2
 theme_override_constants/separation = 15
 
 [node name="GameInformation" type="PanelContainer" parent="GameContainer/MarginContainer/Rows"]
+layout_direction = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_vkbrn")
@@ -96,7 +97,9 @@ script = ExtResource("4_xxybq")
 
 [node name="HistoryRows" type="VBoxContainer" parent="GameContainer/MarginContainer/Rows/GameInformation/Scroll"]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_constants/separation = 15
+alignment = 2
 
 [node name="InputArea" type="PanelContainer" parent="GameContainer/MarginContainer/Rows"]
 custom_minimum_size = Vector2(0, 30)

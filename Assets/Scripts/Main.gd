@@ -17,6 +17,7 @@ func _on_input_text_submitted(user_input):
 	var input_response = InputResponse.instantiate()
 	var response = command_processor.process_command(user_input)
 	input_response.set_text(user_input, response)
+	
 	history_rows.add_child(input_response)
 	
 	del_history_beyond_max()
