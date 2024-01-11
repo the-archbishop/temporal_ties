@@ -1,0 +1,156 @@
+[gd_scene load_steps=20 format=3 uid="uid://bl1urc28xov0j"]
+
+[ext_resource type="Texture2D" uid="uid://1hupi6582gta" path="res://Assets/Art/Images/retroScreen2.png" id="1_fxjla"]
+[ext_resource type="Script" path="res://Assets/Scripts/Main.gd" id="1_wl1m6"]
+[ext_resource type="Shader" path="res://Assets/Shaders/crt_shader.gdshader" id="2_1g85b"]
+[ext_resource type="Script" path="res://Assets/Scripts/CommandProcessor.gd" id="2_6ctg6"]
+[ext_resource type="Script" path="res://Assets/Scripts/Input.gd" id="3_pnkl6"]
+[ext_resource type="Texture2D" uid="uid://c8cne774yid1" path="res://Assets/Art/Images/computerLightOn.png" id="3_y55v4"]
+[ext_resource type="Texture2D" uid="uid://ymkyf46x6it8" path="res://Assets/Art/Images/increment_scroll.png" id="4_dogro"]
+[ext_resource type="Script" path="res://Assets/Scripts/Scroll.gd" id="4_xxybq"]
+[ext_resource type="Texture2D" uid="uid://bjc0ngafokpcx" path="res://Assets/Art/Images/decrement_scroll.png" id="5_qfxlo"]
+[ext_resource type="FontFile" uid="uid://be3spwnauyms2" path="res://Assets/Fonts/zx-spectrum.ttf" id="8_13cq0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkbrn"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0313726)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jena7"]
+bg_color = Color(0, 0.631373, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo11s"]
+bg_color = Color(0, 0.760784, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8025m"]
+bg_color = Color(0, 0.631373, 0, 1)
+
+[sub_resource type="Theme" id="Theme_n7h8m"]
+VScrollBar/icons/decrement = ExtResource("4_dogro")
+VScrollBar/icons/increment = ExtResource("5_qfxlo")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_jena7")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_yo11s")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_8025m")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7gw2"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0431373)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ofsq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u5qt7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_irgh5"]
+shader = ExtResource("2_1g85b")
+shader_parameter/crt_curve = 0.012
+shader_parameter/crt_scan_line_color = 0.218
+shader_parameter/aperture_grille_rate = 1.0
+shader_parameter/rf_switch_esque_blur = 0.106
+shader_parameter/white_noise_rate = 0.063
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wl1m6")
+
+[node name="CommandProcessor" type="Node" parent="."]
+script = ExtResource("2_6ctg6")
+
+[node name="ComputerLightOn" type="Sprite2D" parent="."]
+z_index = 1002
+position = Vector2(694, 591)
+texture = ExtResource("3_y55v4")
+
+[node name="ComputerMonitor" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(402, 301)
+texture = ExtResource("1_fxjla")
+metadata/_edit_lock_ = true
+
+[node name="GameContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_left = 78.0
+offset_top = 62.0
+offset_right = 712.0
+offset_bottom = 538.0
+
+[node name="MarginContainer" type="MarginContainer" parent="GameContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Rows" type="VBoxContainer" parent="GameContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GameInformation" type="PanelContainer" parent="GameContainer/MarginContainer/Rows"]
+layout_direction = 1
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_vkbrn")
+
+[node name="Scroll" type="ScrollContainer" parent="GameContainer/MarginContainer/Rows/GameInformation"]
+layout_mode = 2
+theme = SubResource("Theme_n7h8m")
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("4_xxybq")
+
+[node name="HistoryRows" type="VBoxContainer" parent="GameContainer/MarginContainer/Rows/GameInformation/Scroll"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 25
+alignment = 2
+
+[node name="InputArea" type="PanelContainer" parent="GameContainer/MarginContainer/Rows"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x7gw2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameContainer/MarginContainer/Rows/InputArea"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Label" type="Label" parent="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_fonts/font = ExtResource("8_13cq0")
+theme_override_font_sizes/font_size = 16
+text = "A>"
+
+[node name="Input" type="LineEdit" parent="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_colors/caret_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_constants/caret_width = 6
+theme_override_fonts/font = ExtResource("8_13cq0")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1ofsq")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_u5qt7")
+max_length = 48
+caret_blink = true
+script = ExtResource("3_pnkl6")
+
+[node name="ComputerScreen" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_irgh5")
+layout_mode = 0
+offset_left = 78.0
+offset_top = 61.0
+offset_right = 710.0
+offset_bottom = 535.0
+mouse_filter = 2
+color = Color(0.105882, 0.105882, 0.105882, 1)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+z_index = 1002
+layout_mode = 0
+offset_left = 43.0
+offset_top = 577.0
+offset_right = 100.0
+offset_bottom = 608.0
+disabled = true
+text = "Ugly Power Button"
+
+[connection signal="text_submitted" from="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="." method="_on_input_text_submitted"]
+[connection signal="text_submitted" from="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" method="_on_text_submitted"]
