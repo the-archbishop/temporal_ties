@@ -138,5 +138,14 @@ mouse_filter = 2
 color = Color(0.105882, 0.105882, 0.105882, 1)
 metadata/_edit_lock_ = true
 
+[node name="Button" type="Button" parent="."]
+z_index = 1002
+offset_left = 43.0
+offset_top = 577.0
+offset_right = 100.0
+offset_bottom = 608.0
+disabled = true
+text = "Ugly Power Button"
+
 [connection signal="text_submitted" from="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="." method="_on_input_text_submitted"]
 [connection signal="text_submitted" from="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" method="_on_text_submitted"]

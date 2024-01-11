@@ -16,7 +16,7 @@ func _ready():
 	var dialog_box  = INNER_DIALOG_BOX.instantiate()
 	get_parent().add_child(dialog_box)
 	dialog_box.queue_text("Alright! Here it is - my very own computer!")
-	dialog_box.queue_text("Well, sort of... The boss finally let me to take one home. I really can't believe I have a computer sitting right here on my kitchen table! It's like stepping into the future.")
+	dialog_box.queue_text("Well, sort of... The boss finally let me take one home.  I really can't believe I have a computer sitting right here on my kitchen table!  It's like stepping into the future.")
 	dialog_box.queue_text("Okay, deep breath. Let's fire this baby up!")
 	dialog_box.display_text()
 
