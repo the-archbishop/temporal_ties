@@ -1,0 +1,66 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh8q8v8jukdsq"]
+
+[ext_resource type="Script" path="res://Assets/Scenes/Inner_Dialog_Box.gd" id="1_xv6nv"]
+[ext_resource type="FontFile" uid="uid://hhsgalgbgosn" path="res://Assets/Fonts/AmaticSC-Bold.ttf" id="2_ox6pb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6d0n"]
+bg_color = Color(0, 0, 0, 0.745098)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="InnerDialogBox" type="CanvasLayer"]
+script = ExtResource("1_xv6nv")
+
+[node name="TextboxContainer" type="MarginContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -229.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Panel" type="Panel" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r6d0n")
+
+[node name="MarginContainer" type="MarginContainer" parent="TextboxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Dialog" type="Label" parent="TextboxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_ox6pb")
+theme_override_font_sizes/font_size = 31
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
+autowrap_mode = 3
+justification_flags = 0
+clip_text = true
+text_overrun_behavior = 3
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Continue" type="Label" parent="TextboxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "▼"
+horizontal_alignment = 2
+vertical_alignment = 2
