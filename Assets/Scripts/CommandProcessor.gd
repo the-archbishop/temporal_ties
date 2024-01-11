@@ -17,10 +17,10 @@ func process_command(input: String):
 
 
 func help():
-	return """This is a multi-line
-		string in GDScript.
-		You can use triple quotes
-		to write text on multiple lines."""
+	return """Lorem ipsum dolor sit amet,
+		consectetur adipiscing elit,
+		sed do eiusmod tempor
+		incididunt ut labore et dolore."""
 	
 
 func dir():

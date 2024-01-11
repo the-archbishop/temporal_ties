@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bxwkpceh8nvg2"]
+[gd_scene load_steps=8 format=3 uid="uid://bxwkpceh8nvg2"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Intro.gd" id="1_ynidc"]
+[ext_resource type="Texture2D" uid="uid://c8cne774yid1" path="res://Assets/Art/Images/computerLightOn.png" id="2_fm8ii"]
 [ext_resource type="Texture2D" uid="uid://c36mi1g3ykjpn" path="res://Assets/Art/Images/loading.png" id="3_4pajs"]
 [ext_resource type="Texture2D" uid="uid://1hupi6582gta" path="res://Assets/Art/Images/retroScreen2.png" id="3_7tgxq"]
+[ext_resource type="Texture2D" uid="uid://hhhttcew0c22" path="res://Assets/Art/Images/computerLightOff.png" id="3_befi0"]
 [ext_resource type="Shader" path="res://Assets/Shaders/crt_shader.gdshader" id="9_c4qv1"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irgh5"]
@@ -26,6 +28,17 @@ offset_top = 577.0
 offset_right = 100.0
 offset_bottom = 608.0
 text = "Ugly Power Button"
+
+[node name="ComputerLightOn" type="Sprite2D" parent="."]
+visible = false
+z_index = 1002
+position = Vector2(694, 591)
+texture = ExtResource("2_fm8ii")
+
+[node name="ComputerLightOff" type="Sprite2D" parent="."]
+z_index = 1002
+position = Vector2(694, 591)
+texture = ExtResource("3_befi0")
 
 [node name="ComputerMonitor" type="Sprite2D" parent="."]
 z_index = 1000
