@@ -20,11 +20,12 @@ func _ready():
 	computer_screen_off.visible = true
 	power_light_off.visible = true
 	
-	await get_tree().create_timer(1.0).timeout
+	await get_tree().create_timer(0.5).timeout
 	var dialog_box  = INNER_DIALOG_BOX.instantiate()
 	get_parent().add_child(dialog_box)
 	dialog_box.queue_text("Alright! Here it is - my very own computer!")
-	dialog_box.queue_text("Well, sort of... The boss finally let me take one home.  I really can't believe I have a computer sitting right here on my kitchen table!  It's like stepping into the future.")
+	dialog_box.queue_text("Well, sort of... The boss finally let me take one home.  I really can't believe I have a computer sitting right here on my kitchen table!")
+	dialog_box.queue_text("I can't help but think how computers will change everything. It's like stepping into the future.")
 	dialog_box.queue_text("Okay, deep breath. Let's fire this baby up!")
 	dialog_box.display_text()
 

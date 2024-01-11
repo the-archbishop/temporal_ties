@@ -98,7 +98,7 @@ script = ExtResource("4_xxybq")
 [node name="HistoryRows" type="VBoxContainer" parent="GameContainer/MarginContainer/Rows/GameInformation/Scroll"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 15
+theme_override_constants/separation = 25
 alignment = 2
 
 [node name="InputArea" type="PanelContainer" parent="GameContainer/MarginContainer/Rows"]
@@ -108,7 +108,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_x7gw2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GameContainer/MarginContainer/Rows/InputArea"]
 layout_mode = 2
-theme_override_constants/separation = 8
+theme_override_constants/separation = 11
 
 [node name="Label" type="Label" parent="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer"]
 layout_mode = 2

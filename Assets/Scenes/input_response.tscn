@@ -4,17 +4,20 @@
 [ext_resource type="FontFile" uid="uid://be3spwnauyms2" path="res://Assets/Fonts/zx-spectrum.ttf" id="2_mqhwv"]
 
 [node name="InputResponse" type="VBoxContainer"]
+custom_minimum_size = Vector2(550, 0)
 theme_override_constants/separation = 5
 alignment = 2
 script = ExtResource("1_5ekvu")
 
 [node name="InputHistory" type="Label" parent="."]
 layout_mode = 2
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
 theme_override_fonts/font = ExtResource("2_mqhwv")
 theme_override_font_sizes/font_size = 12
 text = "A> This is what the user typed"
 vertical_alignment = 2
+autowrap_mode = 3
 
 [node name="Response" type="Label" parent="."]
 layout_mode = 2
@@ -23,3 +26,4 @@ theme_override_fonts/font = ExtResource("2_mqhwv")
 theme_override_font_sizes/font_size = 14
 text = "This is what the game will give back"
 vertical_alignment = 2
+autowrap_mode = 3

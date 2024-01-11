@@ -57,6 +57,7 @@ scale = Vector2(0.535744, 0.63807)
 texture = ExtResource("3_4pajs")
 
 [node name="GameContainer" type="PanelContainer" parent="."]
+layout_mode = 0
 offset_left = 78.0
 offset_top = 62.0
 offset_right = 712.0
