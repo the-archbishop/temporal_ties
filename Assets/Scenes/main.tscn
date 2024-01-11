@@ -121,11 +121,14 @@ text = "A>"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_colors/caret_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_constants/caret_width = 6
 theme_override_fonts/font = ExtResource("8_13cq0")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1ofsq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u5qt7")
 max_length = 48
+caret_blink = true
 script = ExtResource("3_pnkl6")
 
 [node name="ComputerScreen" type="ColorRect" parent="."]
