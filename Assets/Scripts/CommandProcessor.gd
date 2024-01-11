@@ -24,4 +24,5 @@ func help():
 	
 
 func dir():
-	return "NOTES	:	STAT"
+	return """NOTES     :
+		"""

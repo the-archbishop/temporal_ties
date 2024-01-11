@@ -4,31 +4,31 @@
 [ext_resource type="Script" path="res://Assets/Scripts/Main.gd" id="1_wl1m6"]
 [ext_resource type="Shader" path="res://Assets/Shaders/crt_shader.gdshader" id="2_1g85b"]
 [ext_resource type="Script" path="res://Assets/Scripts/CommandProcessor.gd" id="2_6ctg6"]
-[ext_resource type="FontFile" uid="uid://dbwsdonxlisbk" path="res://Assets/Fonts/PixelifySans-Regular.ttf" id="3_bjp0o"]
 [ext_resource type="Script" path="res://Assets/Scripts/Input.gd" id="3_pnkl6"]
 [ext_resource type="Texture2D" uid="uid://c8cne774yid1" path="res://Assets/Art/Images/computerLightOn.png" id="3_y55v4"]
 [ext_resource type="Texture2D" uid="uid://ymkyf46x6it8" path="res://Assets/Art/Images/increment_scroll.png" id="4_dogro"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scroll.gd" id="4_xxybq"]
 [ext_resource type="Texture2D" uid="uid://bjc0ngafokpcx" path="res://Assets/Art/Images/decrement_scroll.png" id="5_qfxlo"]
+[ext_resource type="FontFile" uid="uid://be3spwnauyms2" path="res://Assets/Fonts/zx-spectrum.ttf" id="8_13cq0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkbrn"]
 bg_color = Color(0.6, 0.6, 0.6, 0.0313726)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_67ph2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jena7"]
 bg_color = Color(0, 0.631373, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t3rco"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo11s"]
 bg_color = Color(0, 0.760784, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6yjev"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8025m"]
 bg_color = Color(0, 0.631373, 0, 1)
 
 [sub_resource type="Theme" id="Theme_n7h8m"]
 VScrollBar/icons/decrement = ExtResource("4_dogro")
 VScrollBar/icons/increment = ExtResource("5_qfxlo")
-VScrollBar/styles/grabber = SubResource("StyleBoxFlat_67ph2")
-VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_t3rco")
-VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_6yjev")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_jena7")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_yo11s")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_8025m")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7gw2"]
 bg_color = Color(0.6, 0.6, 0.6, 0.0431373)
@@ -108,20 +108,21 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_x7gw2")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GameContainer/MarginContainer/Rows/InputArea"]
 layout_mode = 2
+theme_override_constants/separation = 8
 
 [node name="Label" type="Label" parent="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
-theme_override_fonts/font = ExtResource("3_bjp0o")
-theme_override_font_sizes/font_size = 20
-text = " A > "
+theme_override_fonts/font = ExtResource("8_13cq0")
+theme_override_font_sizes/font_size = 16
+text = "A>"
 
 [node name="Input" type="LineEdit" parent="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
-theme_override_fonts/font = ExtResource("3_bjp0o")
-theme_override_font_sizes/font_size = 20
+theme_override_fonts/font = ExtResource("8_13cq0")
+theme_override_font_sizes/font_size = 16
 theme_override_styles/normal = SubResource("StyleBoxEmpty_1ofsq")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_u5qt7")
 max_length = 48
@@ -140,6 +141,7 @@ metadata/_edit_lock_ = true
 
 [node name="Button" type="Button" parent="."]
 z_index = 1002
+layout_mode = 0
 offset_left = 43.0
 offset_top = 577.0
 offset_right = 100.0

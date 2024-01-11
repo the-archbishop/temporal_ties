@@ -1,11 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bxwkpceh8nvg2"]
+[gd_scene load_steps=10 format=3 uid="uid://bxwkpceh8nvg2"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/Intro.gd" id="1_ynidc"]
 [ext_resource type="Texture2D" uid="uid://c8cne774yid1" path="res://Assets/Art/Images/computerLightOn.png" id="2_fm8ii"]
 [ext_resource type="Texture2D" uid="uid://c36mi1g3ykjpn" path="res://Assets/Art/Images/loading.png" id="3_4pajs"]
 [ext_resource type="Texture2D" uid="uid://1hupi6582gta" path="res://Assets/Art/Images/retroScreen2.png" id="3_7tgxq"]
 [ext_resource type="Texture2D" uid="uid://hhhttcew0c22" path="res://Assets/Art/Images/computerLightOff.png" id="3_befi0"]
+[ext_resource type="FontFile" uid="uid://be3spwnauyms2" path="res://Assets/Fonts/zx-spectrum.ttf" id="6_qr48o"]
 [ext_resource type="Shader" path="res://Assets/Shaders/crt_shader.gdshader" id="9_c4qv1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npvqn"]
+bg_color = Color(0.6, 0.6, 0.6, 0.0313726)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_irgh5"]
 shader = ExtResource("9_c4qv1")
@@ -51,6 +55,58 @@ visible = false
 position = Vector2(394.5, 300)
 scale = Vector2(0.535744, 0.63807)
 texture = ExtResource("3_4pajs")
+
+[node name="GameContainer" type="PanelContainer" parent="."]
+offset_left = 78.0
+offset_top = 62.0
+offset_right = 712.0
+offset_bottom = 538.0
+
+[node name="MarginContainer" type="MarginContainer" parent="GameContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="Rows" type="VBoxContainer" parent="GameContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="GameInformation" type="PanelContainer" parent="GameContainer/MarginContainer/Rows"]
+layout_direction = 1
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_npvqn")
+
+[node name="HistoryRows" type="VBoxContainer" parent="GameContainer/MarginContainer/Rows/GameInformation"]
+layout_mode = 2
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="Message" type="Label" parent="GameContainer/MarginContainer/Rows/GameInformation/HistoryRows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_qr48o")
+theme_override_font_sizes/font_size = 14
+
+[node name="Message2" type="Label" parent="GameContainer/MarginContainer/Rows/GameInformation/HistoryRows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_qr48o")
+theme_override_font_sizes/font_size = 14
+
+[node name="Blank Line" type="Label" parent="GameContainer/MarginContainer/Rows/GameInformation/HistoryRows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_qr48o")
+theme_override_font_sizes/font_size = 14
+
+[node name="Message3" type="Label" parent="GameContainer/MarginContainer/Rows/GameInformation/HistoryRows"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("6_qr48o")
+theme_override_font_sizes/font_size = 14
+autowrap_mode = 2
 
 [node name="ComputerScreen" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_irgh5")
