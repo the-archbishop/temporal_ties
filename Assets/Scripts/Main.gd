@@ -2,6 +2,7 @@ extends Control
 
 
 const InputResponse = preload("res://Assets/Scenes/input_response.tscn")
+const Pong = preload("res://Assets/Scenes/pong.tscn")
 
 @export var max_lines_remembered: int = 30 
 
@@ -17,6 +18,8 @@ func _on_input_text_submitted(user_input):
 	var response = command_processor.process_command(user_input)
 	if response == "clear":
 		clear_screen()
+	elif response == "pong":
+		get_tree().change_scene_to_file("res://Assets/Scenes/pong.tscn")
 	else:
 		input_response.set_text(user_input, response)
 		history_rows.add_child(input_response)

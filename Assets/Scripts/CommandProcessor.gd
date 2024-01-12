@@ -80,8 +80,7 @@ func abort():
 	
 
 func pong():
-	# TODO: Switch to Pong scene
-	pass
+	return "pong"
 
 
 func user():
