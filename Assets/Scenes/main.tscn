@@ -14,21 +14,21 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vkbrn"]
 bg_color = Color(0.6, 0.6, 0.6, 0.0313726)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jena7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7nn7"]
 bg_color = Color(0, 0.631373, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yo11s"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cc8a"]
 bg_color = Color(0, 0.760784, 0, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8025m"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0ckv"]
 bg_color = Color(0, 0.631373, 0, 1)
 
 [sub_resource type="Theme" id="Theme_n7h8m"]
 VScrollBar/icons/decrement = ExtResource("4_dogro")
 VScrollBar/icons/increment = ExtResource("5_qfxlo")
-VScrollBar/styles/grabber = SubResource("StyleBoxFlat_jena7")
-VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_yo11s")
-VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_8025m")
+VScrollBar/styles/grabber = SubResource("StyleBoxFlat_x7nn7")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxFlat_2cc8a")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxFlat_j0ckv")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7gw2"]
 bg_color = Color(0.6, 0.6, 0.6, 0.0431373)

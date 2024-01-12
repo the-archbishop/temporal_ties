@@ -1,0 +1,239 @@
+[gd_scene load_steps=16 format=3 uid="uid://5702gxxjcc7k"]
+
+[ext_resource type="Texture2D" uid="uid://brqnor3hgita2" path="res://Assets/Art/Images/pong_bg.png" id="1_mpek2"]
+[ext_resource type="Script" path="res://Assets/Scripts/Pong.gd" id="2_7i23s"]
+[ext_resource type="Texture2D" uid="uid://1hupi6582gta" path="res://Assets/Art/Images/retroScreen2.png" id="2_btccv"]
+[ext_resource type="Texture2D" uid="uid://c8cne774yid1" path="res://Assets/Art/Images/computerLightOn.png" id="3_pkvnl"]
+[ext_resource type="Shader" path="res://Assets/Shaders/crt_shader.gdshader" id="4_ekrnc"]
+[ext_resource type="FontFile" uid="uid://be3spwnauyms2" path="res://Assets/Fonts/zx-spectrum.ttf" id="4_m30t0"]
+[ext_resource type="Script" path="res://Assets/Scripts/PongPlayer.gd" id="6_swi5c"]
+[ext_resource type="Script" path="res://Assets/Scripts/PongBall.gd" id="7_mdnqj"]
+[ext_resource type="Script" path="res://Assets/Scripts/PongCPU.gd" id="7_p6n8a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tny4i"]
+size = Vector2(84.5, 483)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhmk7"]
+size = Vector2(618.75, 30)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fnq41"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jq7n"]
+size = Vector2(15, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s74l8"]
+size = Vector2(10, 10)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u7we4"]
+shader = ExtResource("4_ekrnc")
+shader_parameter/crt_curve = 0.012
+shader_parameter/crt_scan_line_color = 0.218
+shader_parameter/aperture_grille_rate = 1.0
+shader_parameter/rf_switch_esque_blur = 0.106
+shader_parameter/white_noise_rate = 0.063
+
+[node name="Pong" type="Sprite2D"]
+texture_filter = 1
+centered = false
+script = ExtResource("2_7i23s")
+
+[node name="ComputerMonitor" type="Sprite2D" parent="."]
+z_index = 1000
+position = Vector2(402, 301)
+texture = ExtResource("2_btccv")
+metadata/_edit_lock_ = true
+
+[node name="ComputerLightOn" type="Sprite2D" parent="."]
+z_index = 1002
+position = Vector2(694, 591)
+texture = ExtResource("3_pkvnl")
+
+[node name="ScoreLeft" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreLeft"]
+position = Vector2(41.5, 296.5)
+shape = SubResource("RectangleShape2D_tny4i")
+
+[node name="ScoreRight" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreRight"]
+position = Vector2(748, 297)
+shape = SubResource("RectangleShape2D_tny4i")
+
+[node name="Borders" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="Top" type="CollisionShape2D" parent="Borders"]
+position = Vector2(394.625, 49)
+shape = SubResource("RectangleShape2D_vhmk7")
+
+[node name="Bottom" type="CollisionShape2D" parent="Borders"]
+position = Vector2(395.25, 548)
+shape = SubResource("RectangleShape2D_vhmk7")
+
+[node name="Title" type="PanelContainer" parent="."]
+offset_left = 81.0
+offset_top = 61.0
+offset_right = 708.0
+offset_bottom = 535.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Title"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Title/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="Title/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_fonts/font = ExtResource("4_m30t0")
+theme_override_font_sizes/font_size = 69
+text = "PONG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Title/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartInstructions" type="Label" parent="Title/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_fonts/font = ExtResource("4_m30t0")
+text = "Press Enter"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Title/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="QuitInstructions" type="Label" parent="Title/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.0352941, 0.8, 0.313726, 1)
+theme_override_fonts/font = ExtResource("4_m30t0")
+theme_override_font_sizes/font_size = 10
+text = "Press ESC to quit"
+horizontal_alignment = 1
+
+[node name="Game" type="PanelContainer" parent="."]
+visible = false
+offset_left = 81.0
+offset_top = 69.0
+offset_right = 706.0
+offset_bottom = 532.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fnq41")
+
+[node name="HUD" type="MarginContainer" parent="Game"]
+layout_mode = 2
+theme_override_constants/margin_left = 156
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 150
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Game/HUD"]
+layout_mode = 2
+
+[node name="PlayerScore" type="Label" parent="Game/HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_m30t0")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CPUScore" type="Label" parent="Game/HUD/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_m30t0")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Player" type="StaticBody2D" parent="Game"]
+position = Vector2(30, 250)
+script = ExtResource("6_swi5c")
+
+[node name="ColorRect" type="ColorRect" parent="Game/Player"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 15.0
+offset_bottom = 30.0
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Player"]
+position = Vector2(7.5, -10)
+shape = SubResource("RectangleShape2D_3jq7n")
+
+[node name="CPU" type="StaticBody2D" parent="Game"]
+position = Vector2(580, 250)
+script = ExtResource("7_p6n8a")
+
+[node name="ColorRect" type="ColorRect" parent="Game/CPU"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_right = 15.0
+offset_bottom = 30.0
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/CPU"]
+position = Vector2(7.5, -10)
+shape = SubResource("RectangleShape2D_3jq7n")
+
+[node name="Ball" type="CharacterBody2D" parent="Game"]
+position = Vector2(319, 240)
+collision_mask = 3
+script = ExtResource("7_mdnqj")
+
+[node name="ColorRect" type="ColorRect" parent="Game/Ball"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Ball"]
+shape = SubResource("RectangleShape2D_s74l8")
+
+[node name="BallTimer" type="Timer" parent="Game"]
+one_shot = true
+
+[node name="Background" type="Sprite2D" parent="Game"]
+scale = Vector2(0.78625, 0.771667)
+texture = ExtResource("1_mpek2")
+centered = false
+
+[node name="ComputerScreen" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_u7we4")
+offset_left = 78.0
+offset_top = 61.0
+offset_right = 710.0
+offset_bottom = 535.0
+mouse_filter = 2
+color = Color(0.105882, 0.105882, 0.105882, 1)
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+z_index = 1002
+offset_left = 43.0
+offset_top = 577.0
+offset_right = 100.0
+offset_bottom = 608.0
+disabled = true
+text = "Ugly Power Button"
+
+[connection signal="body_entered" from="ScoreLeft" to="." method="_on_score_left_body_entered"]
+[connection signal="body_entered" from="ScoreRight" to="." method="_on_score_right_body_entered"]
+[connection signal="timeout" from="Game/BallTimer" to="." method="_on_ball_timer_timeout"]

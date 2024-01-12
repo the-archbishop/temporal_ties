@@ -18,8 +18,8 @@ func _on_input_text_submitted(user_input):
 	if response == "clear":
 		clear_screen()
 	else:
-		input_response.set_text(user_input, response)	
-		history_rows.add_child(input_response)	
+		input_response.set_text(user_input, response)
+		history_rows.add_child(input_response)
 		del_history_beyond_max()
 
 
