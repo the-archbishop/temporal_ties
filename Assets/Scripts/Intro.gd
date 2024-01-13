@@ -1,6 +1,7 @@
 extends Control
 
 const INNER_DIALOG_BOX = preload("res://Assets/Scenes/inner_dialog_box.tscn")
+const MAIN = preload("res://Assets/Scenes/main.tscn")
 
 @onready var computer_screen_off = $ComputerScreen_Off
 @onready var power_light_on = $ComputerLightOn

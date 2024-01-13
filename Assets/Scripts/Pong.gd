@@ -29,13 +29,13 @@ func _on_ball_timer_timeout():
 	ball.new_ball()
 
 
-func _on_score_left_body_entered(body):
+func _on_score_left_body_entered(_body):
 	score[1] += 1
 	cpu_score.text = str(score[1])
 	ball_timer.start()
 
 
-func _on_score_right_body_entered(body):
+func _on_score_right_body_entered(_body):
 	score[0] += 1
 	player_score.text = str(score[0])
 	ball_timer.start()

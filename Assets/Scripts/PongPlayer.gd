@@ -1,7 +1,7 @@
 extends StaticBody2D
 
-var win_height : int
-var p_height : int
+var win_height : float
+var p_height : float
 
 const PADDLE_SPEED : int = 500
 
