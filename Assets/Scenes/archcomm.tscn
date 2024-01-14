@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://bhau0f38ueo"]
+[gd_scene load_steps=20 format=3 uid="uid://bhau0f38ueo"]
 
 [ext_resource type="Script" path="res://Assets/Scripts/ArchComm.gd" id="1_eqt08"]
 [ext_resource type="Texture2D" uid="uid://c8cne774yid1" path="res://Assets/Art/Images/computerLightOn.png" id="1_ghweb"]
 [ext_resource type="Texture2D" uid="uid://1hupi6582gta" path="res://Assets/Art/Images/retroScreen2.png" id="2_68m1o"]
+[ext_resource type="Script" path="res://Assets/Scripts/ArchComProcessor.gd" id="2_du2qs"]
 [ext_resource type="Texture2D" uid="uid://ymkyf46x6it8" path="res://Assets/Art/Images/increment_scroll.png" id="3_tg0n8"]
 [ext_resource type="Texture2D" uid="uid://bjc0ngafokpcx" path="res://Assets/Art/Images/decrement_scroll.png" id="4_hpmw8"]
 [ext_resource type="Script" path="res://Assets/Scripts/Scroll.gd" id="5_txpf4"]
@@ -49,6 +50,9 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_eqt08")
 
+[node name="ArchComProcessor" type="Node" parent="."]
+script = ExtResource("2_du2qs")
+
 [node name="ComputerLightOn" type="Sprite2D" parent="."]
 z_index = 1002
 position = Vector2(694, 591)
@@ -93,7 +97,6 @@ script = ExtResource("5_txpf4")
 
 [node name="HistoryRows" type="VBoxContainer" parent="GameContainer/MarginContainer/Rows/GameInformation/Scroll"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 25
 alignment = 2
 
@@ -148,4 +151,5 @@ offset_bottom = 608.0
 disabled = true
 text = "Ugly Power Button"
 
+[connection signal="text_submitted" from="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="." method="_on_input_text_submitted"]
 [connection signal="text_submitted" from="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" to="GameContainer/MarginContainer/Rows/InputArea/HBoxContainer/Input" method="_on_text_submitted"]
