@@ -25,12 +25,12 @@ func _process(_delta):
 			if !text_queue.is_empty():
 				display_text()
 		State.READING:
-			if Input.is_action_just_pressed("ui_text_completion_replace"):
+			if Input.is_action_just_pressed("ui_accept"):
 				tween.kill()
 				dialog.visible_ratio = 1.0
 				on_tween_finished()
 		State.FINISHED:			
-			if Input.is_action_just_pressed("ui_text_completion_replace"):
+			if Input.is_action_just_pressed("ui_accept"):
 				change_state(State.READY)
 				hide_textbox()
 			else:
