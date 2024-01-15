@@ -26,12 +26,15 @@ directories/dch_directory={
 "Player": "res://Assets/Resources/Player.dch"
 }
 directories/dtl_directory={
-"intro": "res://Assets/Resources/intro.dtl"
+"intro": "res://Assets/Resources/intro.dtl",
+"main": "res://Assets/Resources/main.dtl"
 }
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://Assets/Resources/DefaultStyle.tres"]
+layout/default_style="res://Assets/Resources/DefaultStyle.tres"
 glossary/default_case_sensitive=true
-variables={}
+variables={
+"help_hint_given": "0"
+}
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
 text/text_reveal_skip_delay=0.1
@@ -48,6 +51,7 @@ choices/reveal_by_input=false
 save/autosave_delay=60.0
 save/encryption_on_exports_only=true
 text/autopauses={}
+glossary/glossary_files=["res://Assets/Resources/Glossary.tres"]
 
 [display]
 

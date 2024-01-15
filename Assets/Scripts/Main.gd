@@ -8,6 +8,11 @@ const Pong = preload("res://Assets/Scenes/pong.tscn")
 
 @onready var command_processor = $CommandProcessor
 @onready var history_rows = $GameContainer/MarginContainer/Rows/GameInformation/Scroll/HistoryRows
+@onready var player_inner_dialog = "res://Assets/Resources/main.dtl"
+
+
+func _ready():
+	Dialogic.start(player_inner_dialog)
 
 
 func _on_input_text_submitted(user_input):

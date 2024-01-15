@@ -1,0 +1,4 @@
+if {help_hint_given} == 0:
+	[wait time="0.5"]
+	Player: Bah, I don't seem to have brought home the manual. Maybe I should type 'help' or something to see what this computer is capable of.
+	set {help_hint_given} = 1

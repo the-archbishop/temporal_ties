@@ -1,5 +1,7 @@
 [wait time="0.5"]
+[style]
 Player: Alright! Here it is - my very own computer!
 Player: Well, sort of... The boss finally let me take one home.  I really can't believe I have a computer sitting right here on my kitchen table!
 Player: I can't help but think how computers will change everything. It's like stepping into the future.
 Okay, deep breath. Let's fire this baby up!
+set {help_hint_given} = 0

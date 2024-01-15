@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="DialogicGlossary" load_steps=2 format=3 uid="uid://dv6xcb02rrfpv"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Modules/Glossary/glossary_resource.gd" id="1_pt0a1"]
+
+[resource]
+script = ExtResource("1_pt0a1")
+entries = {
+"fire this baby up": {
+"case_sensitive": true,
+"color": Color(0.713726, 0.847059, 0.862745, 1),
+"extra": "",
+"text": "Hit the power button to turn on the computer.",
+"title": "Hint"
+}
+}
+enabled = true
